@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('../patials/head.ejs') %>
+<body>
+    <%- include('../patials/nav.ejs') %> 
+    <div class="create-blog content">
+        <form action="/blogs" method="POST">
+            <label for="title">Blog title:</label>
+            <input type="text" id="title" name="title" required>
+            <label for="snipet">Blog snipet:</label>
+            <input type="text" id="snipet" name="snipet" required>
+            <label for="body">Blog body:</label>
+            <input type="text" id="body" name="body" required>
+            <button>Submit</button>
+        </form>
+    </div>
+    <div class="footer">
+        <%- include('../patials/footer.ejs') %> 
+      </div>
+    
+</body>
+</html>

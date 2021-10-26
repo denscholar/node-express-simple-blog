@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../patials/head.ejs') %>
+
+    <body>
+        <%- include('../patials/nav.ejs') %>
+            <div class="details content">
+                <h2>
+                    <%= blog.title %>
+                </h2>
+                <div class="content">
+                    <p>
+                        <%= blog.body %>
+                    </p>
+                </div>
+                <a class="delete" data-doc="<%= blog._id  %> ">
+                    <img src="/trash-can-outline.svg" alt="trashcan">
+                </a>
+            </div>
+
+            <%- include('../patials/footer.ejs') %>
+
+
+                <script>
+                    const deleteBlog = document.querySelector('a.delete');
+                    deleteBlog.addEventListener('click', (e) => {
+                        const endpoint = `/blogs/${deleteBlog.dataset.doc}`;
+
+                        fetch(endpoint, {
+                            method: 'DELETE'
+                        })
+                            .then((response) => response.json())
+                            .then((data) => window.location.href = data.redirect)
+                            .catch((err) => console.log(err))
+                    })
+                </script>
+    </body>
+
+</html>

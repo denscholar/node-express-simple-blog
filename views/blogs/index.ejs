@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('../patials/head.ejs') %>
+
+
+  <body>
+    <%- include('../patials/nav.ejs') %>
+
+
+      <div class="blogs content">
+        <h2>All Blogs</h2>
+        <% if (blogs.length> 0) { %> <% blogs.forEach(blog=> { %>
+            <a class="single" href="/blogs/<%=blog._id %>">
+              <h3 class="title">
+                <%= blog.title %>
+              </h3>
+              <p class="snipet">
+                <%= blog.snipet %>
+              </p>
+            </a>
+            <% }) %>
+              <% } else { %>
+                <p>There are no blogs to display...</p>
+                <%} %>
+      </div>
+      <div class="footer">
+        <%- include('../patials/footer.ejs') %>
+      </div>
+  </body>
+
+</html>
